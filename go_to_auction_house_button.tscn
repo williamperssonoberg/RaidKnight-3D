@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw3qhheng34li"]
+
+[ext_resource type="Script" uid="uid://dqffu7xqiyx1d" path="res://go_to_auction_house_button_script.gd" id="1_podg4"]
+
+[node name="GoToAuctionHouse" type="Button"]
+offset_left = 480.0
+offset_top = 568.0
+offset_right = 608.0
+offset_bottom = 632.0
+text = "Auction House"
+script = ExtResource("1_podg4")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

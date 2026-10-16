@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://bg35ifu0dfw4s"]
+
+[ext_resource type="Script" uid="uid://0n4hw18228dw" path="res://guild_house_script.gd" id="1_jr05g"]
+[ext_resource type="PackedScene" uid="uid://35xejrpqbe6x" path="res://exit-button.tscn" id="1_oghu0"]
+[ext_resource type="PackedScene" uid="uid://clncv5i455ywb" path="res://go_to_roster.tscn" id="2_a1eut"]
+[ext_resource type="PackedScene" uid="uid://dysyypv8ceu50" path="res://go_to_guild_inventory.tscn" id="2_q0trn"]
+[ext_resource type="PackedScene" uid="uid://cn06hcuglceg6" path="res://go_to_recruitment.tscn" id="2_svgi0"]
+[ext_resource type="PackedScene" uid="uid://bf5nhvkb6eqrs" path="res://go_to_city_view.tscn" id="6_5l134"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_jr05g")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="GoToGuildUpgrades" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 624.0
+offset_right = 352.0
+offset_bottom = 748.0
+text = "Guild Upgrades"
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 584.0
+offset_top = 32.0
+offset_right = 1233.0
+offset_bottom = 108.0
+text = "Guild House Scene"
+horizontal_alignment = 1
+
+[node name="copper_total_label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1608.0
+offset_top = 680.0
+offset_right = 1912.0
+offset_bottom = 768.0
+
+[node name="Quit Game" parent="CanvasLayer" instance=ExtResource("1_oghu0")]
+offset_left = 1856.0
+offset_top = 16.0
+offset_right = 1898.0
+offset_bottom = 53.0
+
+[node name="GoToRecruitment" parent="CanvasLayer" instance=ExtResource("2_svgi0")]
+offset_left = 16.0
+offset_top = 1016.0
+offset_right = 144.0
+offset_bottom = 1080.0
+
+[node name="GoToRoster" parent="CanvasLayer" instance=ExtResource("2_a1eut")]
+offset_left = 152.0
+offset_top = 1016.0
+offset_right = 344.0
+offset_bottom = 1080.0
+
+[node name="GoToGuildInventory2" parent="CanvasLayer" instance=ExtResource("2_q0trn")]
+offset_left = 352.0
+offset_top = 1016.0
+offset_right = 480.0
+offset_bottom = 1080.0
+
+[node name="GoToCityView" parent="CanvasLayer" instance=ExtResource("6_5l134")]
+offset_left = 1784.0
+offset_top = 1016.0
+offset_right = 1914.0
+offset_bottom = 1069.0
+
+[node name="Add99CopperButton" type="Button" parent="CanvasLayer"]
+offset_left = 1624.0
+offset_top = 784.0
+offset_right = 1888.0
+offset_bottom = 896.0
+text = "Add 99 copper
+"
+
+[connection signal="pressed" from="CanvasLayer/Control/GoToGuildUpgrades" to="CanvasLayer" method="_on_go_to_guild_upgrades_pressed"]
+[connection signal="pressed" from="CanvasLayer/Add99CopperButton" to="CanvasLayer" method="_on_add_99_copper_button_pressed"]

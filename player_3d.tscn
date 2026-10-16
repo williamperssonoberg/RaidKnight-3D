@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfo3dm7yd03bh"]
+
+[ext_resource type="Script" uid="uid://jt67guildcpf" path="res://player_3d.gd" id="1_5wjm4"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_5wjm4"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wjm4"]
+albedo_color = Color(0.215686, 1, 0, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5wjm4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5wjm4"]
+
+[node name="Player3D" type="CharacterBody3D" groups=["party_leader", "player"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_5wjm4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("ORMMaterial3D_5wjm4")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_5wjm4")
+size = Vector3(1, 2, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_5wjm4")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CollisionShape3D"]
+radius = 0.4
+height = 1.8
+
+[node name="Attack" type="Node3D" parent="."]
+
+[node name="IceSpearTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 1.5
+
+[node name="IceSpearAttackTimer" type="Timer" parent="Attack/IceSpearTimer"]
+unique_name_in_owner = true
+wait_time = 0.075
+
+[node name="EnemyDetectionArea3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyDetectionArea3D"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 1, 0)
+shape = SubResource("SphereShape3D_5wjm4")
+
+[connection signal="timeout" from="Attack/IceSpearTimer" to="." method="_on_ice_spear_timer_timeout"]
+[connection signal="timeout" from="Attack/IceSpearTimer/IceSpearAttackTimer" to="." method="_on_ice_spear_attack_timer_timeout"]
+[connection signal="body_entered" from="EnemyDetectionArea3D" to="." method="_on_enemy_detection_area_3d_body_entered"]
+[connection signal="body_exited" from="EnemyDetectionArea3D" to="." method="_on_enemy_detection_area_3d_body_exited"]

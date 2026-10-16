@@ -1,0 +1,57 @@
+# Godot-specific ignores
+.import/              # Auto-generated import files
+.godot/               # Local Godot engine cache
+export_presets.cfg    # Export presets (can be ignored unless you want to share them)
+*.tmp                 # Temporary files
+*.log                 # Log files
+
+# Exported game builds
+RaidKnight.exe
+RaidKnight.pck
+RaidKnight.zip
+
+# Large Binary & Image Files (Prevent Large Git Repos)
+*.psd                 # Photoshop files
+*.xcf                 # GIMP project files
+*.kra                 # Krita project files
+*.clip                # Clip Studio Paint files
+*.sai                 # Paint Tool SAI files
+
+# Ignore all high-resolution image files
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.tiff
+*.gif
+*.svg
+*.webp
+
+# Ignore audio files
+*.mp3
+*.wav
+*.ogg
+
+# Ignore background and texture directories (Modify if needed)
+backgrounds/
+textures/
+sprites/
+audio/
+font/
+
+# Exclude specific folders (Modify as needed)
+assets/high_res/      # Example folder for high-res assets
+reference_material/   # Example: concept art, external assets
+Linux/ 
+Windows/
+
+# Ignore Godot-generated backups
+*.godot-backup-*
+*.cfg                 # Configuration files that are auto-generated
+
+# Ignore Editor-related files
+.idea/                # JetBrains IDE files
+.vscode/              # VSCode workspace settings
+*.orig                # Merge conflict backup files
+.DS_Store             # macOS system files
+Thumbs.db             # Windows system thumbnails

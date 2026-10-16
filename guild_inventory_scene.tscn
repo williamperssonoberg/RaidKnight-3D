@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://baf2avuf5xy8p"]
+
+[ext_resource type="PackedScene" uid="uid://35xejrpqbe6x" path="res://exit-button.tscn" id="1_0ugu7"]
+[ext_resource type="Script" uid="uid://bxc4tpjnrxalr" path="res://guild_inventory_scene.gd" id="1_6dtnd"]
+[ext_resource type="PackedScene" uid="uid://cn06hcuglceg6" path="res://go_to_recruitment.tscn" id="3_l4jxk"]
+[ext_resource type="PackedScene" uid="uid://clncv5i455ywb" path="res://go_to_roster.tscn" id="4_vi011"]
+[ext_resource type="PackedScene" uid="uid://dysyypv8ceu50" path="res://go_to_guild_inventory.tscn" id="6_axdb2"]
+[ext_resource type="PackedScene" uid="uid://bf5nhvkb6eqrs" path="res://go_to_city_view.tscn" id="7_tmc0o"]
+[ext_resource type="PackedScene" uid="uid://cw3qhheng34li" path="res://go_to_auction_house_button.tscn" id="8_qx2mt"]
+[ext_resource type="PackedScene" uid="uid://c3ulqxdulu52h" path="res://go_to_guild_house_button.tscn" id="8_th32t"]
+[ext_resource type="PackedScene" uid="uid://cfpshgpa167e6" path="res://go_to_crafting_scene_button.tscn" id="9_aw0kn"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_6dtnd")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1149.0
+offset_bottom = 644.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 7.0
+offset_right = 684.0
+offset_bottom = 58.0
+text = "Guild Inventory Scene"
+horizontal_alignment = 1
+
+[node name="GoToRoster" parent="CanvasLayer" instance=ExtResource("4_vi011")]
+
+[node name="GoToRecruitment" parent="CanvasLayer" instance=ExtResource("3_l4jxk")]
+
+[node name="GoToGuildInventory" parent="CanvasLayer" instance=ExtResource("6_axdb2")]
+
+[node name="GoToCityView" parent="CanvasLayer" instance=ExtResource("7_tmc0o")]
+
+[node name="Guild House" parent="CanvasLayer" instance=ExtResource("8_th32t")]
+
+[node name="Quit Game" parent="CanvasLayer" instance=ExtResource("1_0ugu7")]
+
+[node name="GoToAuctionHouse" parent="CanvasLayer" instance=ExtResource("8_qx2mt")]
+
+[node name="GoToCraftingScene" parent="CanvasLayer" instance=ExtResource("9_aw0kn")]

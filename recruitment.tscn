@@ -1,0 +1,339 @@
+[gd_scene load_steps=14 format=3 uid="uid://dwna40vdeypov"]
+
+[ext_resource type="Script" uid="uid://b4bmc0je40qa0" path="res://recruitment_scene.gd" id="1_8cref"]
+[ext_resource type="PackedScene" uid="uid://35xejrpqbe6x" path="res://exit-button.tscn" id="1_hhn8c"]
+[ext_resource type="Script" uid="uid://bsls3hsqt2tah" path="res://GlobalBackgroundManager.gd" id="1_tuceg"]
+[ext_resource type="Script" uid="uid://dtko52pvjg4bt" path="res://inspect_champion_button.gd" id="2_b7h6c"]
+[ext_resource type="Texture2D" uid="uid://b27ppoi5yl6q6" path="res://textures/RaidTileSet.png" id="2_e456b"]
+[ext_resource type="PackedScene" uid="uid://clncv5i455ywb" path="res://go_to_roster.tscn" id="3_pdg36"]
+[ext_resource type="PackedScene" uid="uid://dysyypv8ceu50" path="res://go_to_guild_inventory.tscn" id="4_37abj"]
+[ext_resource type="PackedScene" uid="uid://cn06hcuglceg6" path="res://go_to_recruitment.tscn" id="5_edg7c"]
+[ext_resource type="PackedScene" uid="uid://bf5nhvkb6eqrs" path="res://go_to_city_view.tscn" id="6_52yhd"]
+[ext_resource type="PackedScene" uid="uid://c3ulqxdulu52h" path="res://go_to_guild_house_button.tscn" id="7_10kjc"]
+[ext_resource type="Texture2D" uid="uid://b76scfmjqvgcy" path="res://icon.svg" id="8_6xewn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ci42h"]
+texture = ExtResource("2_e456b")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+58:0/0 = 0
+59:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ua4yw"]
+sources/0 = SubResource("TileSetAtlasSource_ci42h")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_8cref")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 816.0
+offset_top = 32.0
+offset_right = 1098.0
+offset_bottom = 72.0
+text = "Champion Recruitment Scene"
+horizontal_alignment = 1
+
+[node name="Recruited" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1568.0
+offset_top = 120.0
+offset_right = 1704.0
+offset_bottom = 191.0
+text = "Recruited"
+horizontal_alignment = 1
+
+[node name="GenerateChampionsButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 80.0
+offset_right = 256.0
+offset_bottom = 208.0
+text = "Find new recruits!"
+
+[node name="ClearChampionList" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 216.0
+offset_right = 248.0
+offset_bottom = 256.0
+text = "Clear List"
+
+[node name="AddToGuildRoster" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 264.0
+offset_right = 224.0
+offset_bottom = 328.0
+text = "Add to Guild"
+
+[node name="RemoveFromGuildRoster" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1768.0
+offset_top = 888.0
+offset_right = 1904.0
+offset_bottom = 952.0
+text = "/GKICK"
+
+[node name="GiveXP" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 128.0
+offset_right = 968.0
+offset_bottom = 192.0
+text = "Give 100 000 XP"
+
+[node name="GiveXPtoguild" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 200.0
+offset_right = 968.0
+offset_bottom = 264.0
+text = "Give 100 000 XP
+to all in guild"
+
+[node name="ChampionUIContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 80.0
+offset_right = 512.0
+offset_bottom = 528.0
+
+[node name="ChampionDetailsContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 80.0
+offset_right = 800.0
+offset_bottom = 576.0
+
+[node name="lblName" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblClass" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblSpec" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblSkill" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblSkillful" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblRace" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblLevel" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblItemlvl" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblStatus" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblMorale" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblRarity" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblProffession" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblTeamWork" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblReflexes" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblOffense" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblDefense" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblEndurance" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblFocus" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+mouse_filter = 0
+
+[node name="GuildRosterContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 2
+offset_left = 1512.0
+offset_top = 144.0
+offset_right = 1752.0
+offset_bottom = 616.0
+
+[node name="GuildRosterScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 1512.0
+offset_top = 176.0
+offset_right = 1832.0
+offset_bottom = 592.0
+
+[node name="InspectChampionButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1280.0
+offset_top = 600.0
+offset_right = 1472.0
+offset_bottom = 648.0
+text = "Inspect Champion"
+script = ExtResource("2_b7h6c")
+
+[node name="PopupDialog" type="Popup" parent="CanvasLayer/Control"]
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/PopupDialog"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="GeneralRaidTileMap" type="TileMap" parent="CanvasLayer/Control"]
+tile_set = SubResource("TileSet_ua4yw")
+format = 2
+
+[node name="ChangeNameWindow" type="Window" parent="CanvasLayer/Control"]
+auto_translate_mode = 1
+title = "Change Name"
+initial_position = 1
+size = Vector2i(220, 125)
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/ChangeNameWindow"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/Control/ChangeNameWindow/Control"]
+layout_mode = 0
+offset_right = 99.0
+offset_bottom = 31.0
+placeholder_text = "Enter name"
+alignment = 1
+expand_to_text_length = true
+
+[node name="ButtonCancel" type="Button" parent="CanvasLayer/Control/ChangeNameWindow/Control"]
+layout_mode = 0
+offset_left = -0.345
+offset_top = 78.445
+offset_right = 59.655
+offset_bottom = 109.445
+text = "Cancel"
+
+[node name="ButtonSaveName" type="Button" parent="CanvasLayer/Control/ChangeNameWindow/Control"]
+layout_mode = 0
+offset_left = 80.515
+offset_top = 76.065
+offset_right = 175.515
+offset_bottom = 107.065
+text = "Save Name"
+
+[node name="ChangeChampionName" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1568.0
+offset_top = 624.0
+offset_right = 1696.0
+offset_bottom = 680.0
+text = "Change Name"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 48.0
+offset_right = 685.0
+offset_bottom = 72.0
+text = "Double click champions to add them to your roster."
+
+[node name="Quit Game" parent="CanvasLayer" instance=ExtResource("1_hhn8c")]
+offset_left = 1856.0
+offset_top = 24.0
+offset_right = 1898.0
+offset_bottom = 61.0
+
+[node name="GoToRoster" parent="CanvasLayer" instance=ExtResource("3_pdg36")]
+visible = false
+offset_left = 152.0
+offset_top = 1008.0
+offset_right = 344.0
+offset_bottom = 1072.0
+
+[node name="GoToGuildInventory" parent="CanvasLayer" instance=ExtResource("4_37abj")]
+offset_left = 288.0
+offset_top = 1008.0
+offset_right = 416.0
+offset_bottom = 1072.0
+
+[node name="GoToRecruitment" parent="CanvasLayer" instance=ExtResource("5_edg7c")]
+offset_left = 16.0
+offset_top = 1008.0
+offset_right = 144.0
+offset_bottom = 1072.0
+
+[node name="GoToCityView" parent="CanvasLayer" instance=ExtResource("6_52yhd")]
+offset_left = 1776.0
+offset_top = 1016.0
+offset_right = 1906.0
+offset_bottom = 1069.0
+
+[node name="Guild House" parent="CanvasLayer" instance=ExtResource("7_10kjc")]
+offset_left = 152.0
+offset_top = 1008.0
+offset_right = 280.0
+offset_bottom = 1072.0
+
+[node name="Window" type="Window" parent="."]
+title = "Popup"
+position = Vector2i(637, 252)
+size = Vector2i(400, 200)
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="Window"]
+
+[node name="Label" type="Label" parent="Window/Camera2D"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Icon" type="Sprite2D" parent="Window/Camera2D/Label"]
+position = Vector2(840, 320)
+texture = ExtResource("8_6xewn")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(960, 540)
+script = ExtResource("1_tuceg")
+
+[node name="Background" type="Sprite2D" parent="Node2D"]
+
+[node name="ChampionAvatarArea" type="Node2D" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/Control/GenerateChampionsButton" to="." method="_on_generate_champions_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ClearChampionList" to="." method="_on_clear_champion_list_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/AddToGuildRoster" to="." method="_on_add_to_guild_roster_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/RemoveFromGuildRoster" to="." method="_on_remove_from_guild_roster_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/GiveXP" to="." method="_on_give_xp_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/GiveXPtoguild" to="." method="_on_give_xp_to_guild_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/InspectChampionButton" to="CanvasLayer/Control/InspectChampionButton" method="_on_pressed"]
+[connection signal="close_requested" from="CanvasLayer/Control/ChangeNameWindow" to="." method="_on_change_name_window_close_requested"]
+[connection signal="pressed" from="CanvasLayer/Control/ChangeNameWindow/Control/ButtonCancel" to="." method="_on_button_cancel_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ChangeNameWindow/Control/ButtonSaveName" to="." method="_on_button_save_name_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ChangeChampionName" to="." method="_on_change_champion_name_pressed"]

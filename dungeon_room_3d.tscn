@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgrh7wyafnl56"]
+
+[ext_resource type="Script" uid="uid://bemq0v6p2f8ur" path="res://dungeon_room_3d.gd" id="1_ow7x5"]
+[ext_resource type="Texture2D" uid="uid://ely3g8c8fijn" path="res://textures/DungeonFloorTiles.png" id="2_e6t24"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ow7x5"]
+albedo_texture = ExtResource("2_e6t24")
+uv1_scale = Vector3(2.608, 12.026, 2.418)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ow7x5"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_ow7x5")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+size = Vector3(20, 0.2, 20)
+material = SubResource("StandardMaterial3D_ow7x5")
+
+[node name="FloorCollision" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloorCollision"]
+
+[node name="WallNorth" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WallNorth"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallNorth"]
+
+[node name="WallSouth" type="StaticBody3D" parent="."]
+
+[node name="WallEast" type="StaticBody3D" parent="."]
+
+[node name="WallWest" type="StaticBody3D" parent="."]
+
+[node name="GoalArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GoalArea"]
+
+[node name="Playermockup" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.890699, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_ow7x5")

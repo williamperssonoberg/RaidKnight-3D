@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvj5tji5ays4c"]
+
+[ext_resource type="Script" uid="uid://dkv6embk3ejwy" path="res://enemy_3d.gd" id="1_w7iex"]
+[ext_resource type="AudioStream" uid="uid://bf33dhfgbvvxj" path="res://audio/SoundEffect/enemy_hit.ogg" id="2_h4o4t"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_smrn3"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w7iex"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h4o4t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5g3j6"]
+
+[node name="Enemy3D" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_w7iex")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("ORMMaterial3D_smrn3")
+size = Vector3(1, 2, 1.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_w7iex")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.6, 0, 0.0636234, 0)
+visible = false
+radius = 0.4
+height = 1.8
+
+[node name="snd_hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_h4o4t")
+volume_db = -10.0
+
+[node name="HitBox" type="Area3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+collision_layer = 0
+collision_mask = 3
+
+[node name="HitBoxCollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+shape = SubResource("BoxShape3D_h4o4t")
+
+[node name="HurtBox" type="Area3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox"]
+shape = SubResource("BoxShape3D_5g3j6")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

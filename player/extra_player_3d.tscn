@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ptlmr5ekds2s"]
+
+[ext_resource type="Script" uid="uid://cie5wdnohe5js" path="res://player/extra_player_3d.gd" id="1_ohpn2"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_4fbli"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ohpn2"]
+albedo_color = Color(0.262745, 0.254902, 1, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ohpn2"]
+
+[node name="extra_player_3D" type="CharacterBody3D" groups=["player"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_ohpn2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("ORMMaterial3D_4fbli")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_ohpn2")
+size = Vector3(1, 2, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ohpn2")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CollisionShape3D"]
+radius = 0.4
+height = 1.8

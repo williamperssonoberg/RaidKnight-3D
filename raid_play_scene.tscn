@@ -1,0 +1,256 @@
+[gd_scene load_steps=13 format=3 uid="uid://b66q0vyyd80fx"]
+
+[ext_resource type="PackedScene" uid="uid://bf5nhvkb6eqrs" path="res://go_to_city_view.tscn" id="1_5aivq"]
+[ext_resource type="Script" uid="uid://bnrgcdfexxrjx" path="res://raid_play_scene.gd" id="1_j65hv"]
+[ext_resource type="PackedScene" uid="uid://dysyypv8ceu50" path="res://go_to_guild_inventory.tscn" id="2_b1g7i"]
+[ext_resource type="PackedScene" uid="uid://35xejrpqbe6x" path="res://exit-button.tscn" id="2_k6uln"]
+[ext_resource type="PackedScene" uid="uid://cabgg6tprg55t" path="res://go_to_solo_play_button.tscn" id="3_ieufw"]
+[ext_resource type="Texture2D" uid="uid://b27ppoi5yl6q6" path="res://textures/RaidTileSet.png" id="3_y0wch"]
+[ext_resource type="PackedScene" uid="uid://p0qe2y0iuhiv" path="res://go_to_dungeon_button_small.tscn" id="4_ri5rw"]
+[ext_resource type="Script" uid="uid://d2nvr0ca6ghna" path="res://RaidMapTileMap.gd" id="4_ro70v"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ivmk6"]
+texture = ExtResource("3_y0wch")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+58:0/0 = 0
+59:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_yuh3m"]
+sources/0 = SubResource("TileSetAtlasSource_ivmk6")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ej44h"]
+texture = ExtResource("3_y0wch")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+58:0/0 = 0
+59:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_am0re"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_ej44h")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_j65hv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 896.0
+offset_top = 24.0
+offset_right = 1224.0
+offset_bottom = 112.0
+text = "Raid scene"
+horizontal_alignment = 1
+
+[node name="GeneratedRaidScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1472.0
+offset_top = 152.0
+offset_right = 1856.0
+offset_bottom = 376.0
+
+[node name="GeneratedRaidContainer" type="VBoxContainer" parent="CanvasLayer/Control/GeneratedRaidScrollContainer"]
+layout_mode = 2
+
+[node name="GenerateRaidButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1472.0
+offset_top = 392.0
+offset_right = 1856.0
+offset_bottom = 448.0
+text = "Buy a new raid map!"
+
+[node name="StartRaidButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1472.0
+offset_top = 520.0
+offset_right = 1856.0
+offset_bottom = 576.0
+text = "Start Selected Raid"
+
+[node name="ChampionUIContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 648.0
+offset_top = 80.0
+offset_right = 952.0
+offset_bottom = 272.0
+
+[node name="ChampionDetailsContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 128.0
+offset_right = 528.0
+offset_bottom = 480.0
+
+[node name="lblName" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblClass" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblSpec" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblSkill" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblRace" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblLevel" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblChampionPower" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblStatus" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="GuildRosterContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 224.0
+offset_bottom = 512.0
+
+[node name="RaidPartyContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 472.0
+offset_right = 488.0
+offset_bottom = 680.0
+
+[node name="RaidPartyDetailsContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 456.0
+offset_right = 776.0
+offset_bottom = 640.0
+
+[node name="ActiveRaidPartyContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1472.0
+offset_top = 592.0
+offset_right = 1856.0
+offset_bottom = 896.0
+
+[node name="Show Map" type="Button" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 1472.0
+offset_top = 456.0
+offset_right = 1856.0
+offset_bottom = 512.0
+text = "Show Map Layout"
+
+[node name="AddRemoveChampButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 528.0
+offset_right = 200.0
+offset_bottom = 576.0
+text = "Add / Remove Champ"
+
+[node name="GuildMembers" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 104.0
+offset_right = 200.0
+offset_bottom = 128.0
+text = "Guild Members"
+horizontal_alignment = 1
+
+[node name="RaidOptions" type="OptionButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1472.0
+offset_top = 96.0
+offset_right = 1848.0
+offset_bottom = 144.0
+
+[node name="RaidLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1464.0
+offset_top = 40.0
+offset_right = 1856.0
+offset_bottom = 88.0
+text = "Select Raid from dropdown menu 
+or from map list."
+horizontal_alignment = 1
+
+[node name="GoToGuildInventory" parent="CanvasLayer/Control" instance=ExtResource("2_b1g7i")]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 1008.0
+offset_right = 480.0
+offset_bottom = 1072.0
+
+[node name="map_overlay" type="TileMap" parent="CanvasLayer/Control"]
+visibility_layer = 2
+z_index = 1
+position = Vector2(1152, 128)
+tile_set = SubResource("TileSet_yuh3m")
+format = 2
+layer_0/z_index = 1
+
+[node name="RaidMapTileMap" type="TileMap" parent="CanvasLayer/Control"]
+position = Vector2(1152, 128)
+tile_set = SubResource("TileSet_am0re")
+rendering_quadrant_size = 8
+format = 2
+script = ExtResource("4_ro70v")
+
+[node name="RaidInfoContainer" type="VBoxContainer" parent="CanvasLayer/Control/RaidMapTileMap"]
+offset_left = -272.0
+offset_top = 88.0
+offset_bottom = 728.0
+metadata/_edit_use_anchors_ = true
+
+[node name="GoToCityView" parent="CanvasLayer" instance=ExtResource("1_5aivq")]
+offset_left = 1784.0
+offset_top = 1016.0
+offset_right = 1914.0
+offset_bottom = 1069.0
+
+[node name="Quit Game" parent="CanvasLayer" instance=ExtResource("2_k6uln")]
+offset_left = 1856.0
+offset_top = 24.0
+offset_right = 1898.0
+offset_bottom = 61.0
+
+[node name="GoToSoloPlayButton" parent="CanvasLayer" instance=ExtResource("3_ieufw")]
+offset_left = 1400.0
+offset_top = 1008.0
+offset_right = 1528.0
+offset_bottom = 1072.0
+
+[node name="GoToDungeonButtonSmall" parent="CanvasLayer" instance=ExtResource("4_ri5rw")]
+offset_left = 1536.0
+offset_top = 1008.0
+offset_right = 1664.0
+offset_bottom = 1072.0
+
+[connection signal="pressed" from="CanvasLayer/Control/GenerateRaidButton" to="." method="_on_generate_raid_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/StartRaidButton" to="." method="_on_start_raid_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/AddRemoveChampButton" to="." method="_on_add_remove_champ_button_pressed"]
+[connection signal="item_selected" from="CanvasLayer/Control/RaidOptions" to="." method="_on_raid_options_item_selected"]

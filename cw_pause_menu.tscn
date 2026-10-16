@@ -1,0 +1,102 @@
+[gd_scene load_steps=2 format=3 uid="uid://duljpqpdxdqf4"]
+
+[ext_resource type="Script" uid="uid://ctph0rk8yxg3r" path="res://cw_pause_menu.gd" id="1_1ula0"]
+
+[node name="CW_PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_1ula0")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="CurrentPartyMenu" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+offset_left = 192.0
+offset_top = 192.0
+offset_right = 233.0
+offset_bottom = 256.0
+
+[node name="PartyLabel" type="Label" parent="Panel/CurrentPartyMenu"]
+layout_mode = 2
+text = "Party"
+
+[node name="PartyList" type="HBoxContainer" parent="Panel/CurrentPartyMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 264.0
+offset_right = 1728.0
+offset_bottom = 1032.0
+
+[node name="DungeonInventoryLabel" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="InventoryGrid" type="GridContainer" parent="Panel/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PauseMenu" type="VBoxContainer" parent="Panel"]
+layout_direction = 2
+layout_mode = 2
+offset_left = 768.0
+offset_top = 72.0
+offset_right = 1152.0
+offset_bottom = 280.0
+
+[node name="ContinueButton" type="Button" parent="Panel/PauseMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Continue"
+
+[node name="ExitDungeonButton" type="Button" parent="Panel/PauseMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Exit Dungeon"
+
+[node name="GuildInventoryButton" type="Button" parent="Panel/PauseMenu"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Guild Inventory"
+
+[node name="RestartDungeonButton" type="Button" parent="Panel/PauseMenu"]
+layout_mode = 2
+text = "Restart Dungeon"
+
+[node name="StartNewDungeonLabel" type="Label" parent="Panel/PauseMenu"]
+layout_mode = 2
+text = "Start New Dungeon"
+horizontal_alignment = 1
+
+[node name="DungeonLevelButton" type="OptionButton" parent="Panel/PauseMenu"]
+layout_mode = 2
+
+[node name="DungeonDifficultyButton" type="OptionButton" parent="Panel/PauseMenu"]
+layout_mode = 2
+
+[node name="ItemDescription" type="RichTextLabel" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 752.0
+offset_bottom = 168.0
+
+[node name="VictoryLabel" type="RichTextLabel" parent="Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 768.0
+offset_top = 8.0
+offset_right = 1152.0
+offset_bottom = 64.0
+text = "Victory!"
+horizontal_alignment = 1

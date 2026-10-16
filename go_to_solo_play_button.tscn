@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cabgg6tprg55t"]
+
+[ext_resource type="Script" uid="uid://bjd75uqirakqq" path="res://go_to_solo_play_button_script.gd" id="1_yx3bd"]
+
+[node name="GoToSoloPlayButton" type="Button"]
+offset_left = 8.0
+offset_top = 320.0
+offset_right = 136.0
+offset_bottom = 384.0
+text = "Solo"
+script = ExtResource("1_yx3bd")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

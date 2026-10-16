@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://m2ayg15rctp2"]
+
+[ext_resource type="Script" uid="uid://4j7wc2f64185" path="res://champion.gd" id="1_3mfqq"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_right = 128.0
+offset_bottom = 64.0
+text = "Champion
+"
+script = ExtResource("1_3mfqq")

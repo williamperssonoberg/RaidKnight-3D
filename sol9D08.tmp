@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0u7xkgue57tr"]
+
+[ext_resource type="PackedScene" uid="uid://35xejrpqbe6x" path="res://exit-button.tscn" id="1_gsq11"]
+[ext_resource type="Script" path="res://solo_play_scene_script.gd" id="1_j08e8"]
+[ext_resource type="Script" path="res://GlobalBackgroundManager.gd" id="1_uqyay"]
+[ext_resource type="PackedScene" uid="uid://bf5nhvkb6eqrs" path="res://go_to_city_view.tscn" id="2_evkcb"]
+[ext_resource type="PackedScene" uid="uid://dfsvhsrjpq27o" path="res://go_to_raid_button_small.tscn" id="3_mgvue"]
+[ext_resource type="PackedScene" uid="uid://p0qe2y0iuhiv" path="res://go_to_dungeon_button_small.tscn" id="4_kba3v"]
+
+[node name="GlobalNode" type="Node2D"]
+
+[node name="SceneNode" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SceneNode"]
+script = ExtResource("1_j08e8")
+
+[node name="Control" type="Control" parent="SceneNode/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="SceneNode/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 16.0
+offset_right = 744.0
+offset_bottom = 96.0
+text = "Solo Play Scene
+"
+horizontal_alignment = 1
+
+[node name="GuildRosterContainer" type="VBoxContainer" parent="SceneNode/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 128.0
+offset_right = 696.0
+offset_bottom = 512.0
+
+[node name="ChampionDetailsContainer" type="VBoxContainer" parent="SceneNode/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 128.0
+offset_right = 960.0
+offset_bottom = 448.0
+
+[node name="lblName" type="Label" parent="SceneNode/CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblClass" type="Label" parent="SceneNode/CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblSkill" type="Label" parent="SceneNode/CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblRace" type="Label" parent="SceneNode/CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblLevel" type="Label" parent="SceneNode/CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblExperience" type="Label" parent="SceneNode/CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblStatus" type="Label" parent="SceneNode/CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="ActivityOptions" type="OptionButton" parent="SceneNode/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 448.0
+offset_right = 960.0
+offset_bottom = 512.0
+
+[node name="Quit Game" parent="SceneNode/CanvasLayer" instance=ExtResource("1_gsq11")]
+
+[node name="GoToCityView" parent="SceneNode/CanvasLayer" instance=ExtResource("2_evkcb")]
+offset_left = 8.0
+offset_right = 138.0
+offset_bottom = 637.0
+
+[node name="GoToRaidButtonSmall" parent="SceneNode/CanvasLayer" instance=ExtResource("3_mgvue")]
+
+[node name="GoToDungeonButtonSmall" parent="SceneNode/CanvasLayer" instance=ExtResource("4_kba3v")]
+
+[node name="Node2D" type="Node2D" parent="SceneNode/CanvasLayer"]
+script = ExtResource("1_uqyay")
+
+[node name="Background" type="Sprite2D" parent="SceneNode/CanvasLayer/Node2D"]
+
+[connection signal="item_selected" from="SceneNode/CanvasLayer/Control/ActivityOptions" to="SceneNode/CanvasLayer" method="_on_activity_options_item_selected"]

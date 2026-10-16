@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfpshgpa167e6"]
+
+[ext_resource type="Script" uid="uid://pecscfpb0qfa" path="res://go_to_crafting_scene_button_script.gd" id="1_0dm01"]
+
+[node name="GoToCraftingScene" type="Button"]
+offset_left = 616.0
+offset_top = 568.0
+offset_right = 744.0
+offset_bottom = 632.0
+text = "Crafting"
+script = ExtResource("1_0dm01")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,272 @@
+[gd_scene load_steps=6 format=3 uid="uid://coqkoi546bof4"]
+
+[ext_resource type="PackedScene" uid="uid://cabgg6tprg55t" path="res://go_to_solo_play_button.tscn" id="1_6m65q"]
+[ext_resource type="Script" path="res://dungeons_play_scene.gd" id="1_843cx"]
+[ext_resource type="PackedScene" uid="uid://35xejrpqbe6x" path="res://exit-button.tscn" id="1_bo3gh"]
+[ext_resource type="PackedScene" uid="uid://bf5nhvkb6eqrs" path="res://go_to_city_view.tscn" id="2_qc7s2"]
+[ext_resource type="PackedScene" uid="uid://dfsvhsrjpq27o" path="res://go_to_raid_button_small.tscn" id="3_3wnua"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_843cx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 1920.0
+offset_bottom = 64.0
+text = "Dungeons Scene"
+horizontal_alignment = 1
+
+[node name="ChampionDetailsContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 129.0
+offset_right = 413.0
+offset_bottom = 449.0
+
+[node name="lblName" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblClass" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblSpec" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblSkill" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblRace" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblLevel" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblItemlvl" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblStatus" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="GuildRosterContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 128.0
+offset_right = 200.0
+offset_bottom = 512.0
+
+[node name="DungeonPartyContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 584.0
+offset_right = 704.0
+offset_bottom = 728.0
+
+[node name="AddRemoveChampButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 592.0
+offset_right = 912.0
+offset_bottom = 640.0
+text = "Add / Remove Champ"
+
+[node name="DungeonOptions" type="OptionButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1488.0
+offset_top = 96.0
+offset_right = 1680.0
+offset_bottom = 144.0
+
+[node name="PartyLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 864.0
+offset_top = 72.0
+offset_right = 1056.0
+offset_bottom = 104.0
+text = "Add party members"
+horizontal_alignment = 1
+
+[node name="DungeonLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1488.0
+offset_top = 64.0
+offset_right = 1680.0
+offset_bottom = 88.0
+text = "Select Dungeon"
+horizontal_alignment = 1
+
+[node name="StartDungeonButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1688.0
+offset_top = 96.0
+offset_right = 1880.0
+offset_bottom = 144.0
+text = "Start Dungeon"
+
+[node name="GuildMembers" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 104.0
+offset_right = 200.0
+offset_bottom = 128.0
+text = "Guild Members"
+horizontal_alignment = 1
+
+[node name="EmptyButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1656.0
+offset_top = 1008.0
+offset_right = 1768.0
+offset_bottom = 1064.0
+text = "Dungeon"
+
+[node name="DungeonInfoLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1488.0
+offset_top = 152.0
+offset_right = 1880.0
+offset_bottom = 344.0
+
+[node name="ActiveDungeonPartiesContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1496.0
+offset_top = 368.0
+offset_right = 1816.0
+offset_bottom = 520.0
+
+[node name="DPScontainer1" type="CenterContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 128.0
+offset_right = 1088.0
+offset_bottom = 192.0
+tooltip_text = "DPS 1 goes here"
+metadata/_edit_lock_ = true
+
+[node name="DPSlabel1" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 128.0
+offset_right = 1088.0
+offset_bottom = 192.0
+text = "DPS  1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DPScontainer2" type="CenterContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 192.0
+offset_right = 832.0
+offset_bottom = 256.0
+tooltip_text = "DPS 1 goes here"
+metadata/_edit_lock_ = true
+
+[node name="DPSlabel2" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 192.0
+offset_right = 832.0
+offset_bottom = 256.0
+text = "DPS 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DPScontainer3" type="CenterContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 192.0
+offset_right = 1344.0
+offset_bottom = 256.0
+tooltip_text = "DPS 1 goes here"
+metadata/_edit_lock_ = true
+
+[node name="DPSlabel3" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 192.0
+offset_right = 1344.0
+offset_bottom = 256.0
+text = "DPS 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Healercontainer" type="CenterContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 320.0
+offset_right = 960.0
+offset_bottom = 384.0
+tooltip_text = "DPS 1 goes here"
+metadata/_edit_lock_ = true
+
+[node name="Healerlabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 320.0
+offset_right = 960.0
+offset_bottom = 384.0
+text = "Healer"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Tankcontainer" type="CenterContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 320.0
+offset_right = 1216.0
+offset_bottom = 384.0
+tooltip_text = "DPS 1 goes here"
+metadata/_edit_lock_ = true
+
+[node name="Tanklabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 320.0
+offset_right = 1216.0
+offset_bottom = 384.0
+text = "Tank"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Quit Game" parent="CanvasLayer" instance=ExtResource("1_bo3gh")]
+offset_left = 1856.0
+offset_top = 24.0
+offset_right = 1898.0
+offset_bottom = 61.0
+
+[node name="GoToCityView" parent="CanvasLayer" instance=ExtResource("2_qc7s2")]
+offset_left = 8.0
+offset_top = 1016.0
+offset_right = 138.0
+offset_bottom = 1069.0
+
+[node name="GoToRaidButtonSmall" parent="CanvasLayer" instance=ExtResource("3_3wnua")]
+offset_left = 1776.0
+offset_top = 1008.0
+offset_right = 1904.0
+offset_bottom = 1064.0
+
+[node name="GoToSoloPlayButton" parent="CanvasLayer" instance=ExtResource("1_6m65q")]
+offset_left = 1520.0
+offset_top = 1008.0
+offset_right = 1648.0
+offset_bottom = 1064.0
+
+[connection signal="pressed" from="CanvasLayer/Control/AddRemoveChampButton" to="." method="_on_add_remove_champ_button_pressed"]
+[connection signal="item_selected" from="CanvasLayer/Control/DungeonOptions" to="." method="_on_dungeon_options_item_selected"]
+[connection signal="pressed" from="CanvasLayer/Control/StartDungeonButton" to="." method="_on_start_dungeon_button_pressed"]

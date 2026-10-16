@@ -1,0 +1,200 @@
+[gd_scene load_steps=11 format=3 uid="uid://ci5gm7oqb45i2"]
+
+[ext_resource type="Script" uid="uid://co2rk0v7f5ld5" path="res://player/extra_player.gd" id="1_2hw2l"]
+[ext_resource type="PackedScene" uid="uid://cyg6pjqbrexew" path="res://Utility/hurt_box.tscn" id="2_vvsl3"]
+[ext_resource type="FontFile" uid="uid://do3624a1qlaqf" path="res://font/tenderness.otf" id="5_7onrd"]
+[ext_resource type="Texture2D" uid="uid://dl31775qumu8k" path="res://textures/GUI/healthbar.png" id="6_omp4a"]
+[ext_resource type="Texture2D" uid="uid://dxt2x6spprmsr" path="res://textures/GUI/health.png" id="7_apd8p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0o63m"]
+radius = 5.0
+height = 26.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ynms"]
+size = Vector2(11, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4l4b6"]
+radius = 551.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_svib6"]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3i8w6"]
+
+[node name="ExtraPlayer" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_2hw2l")
+
+[node name="CharacterContainer" type="Node2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="CharacterHolder" type="Node2D" parent="CharacterContainer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2)
+shape = SubResource("CapsuleShape2D_0o63m")
+
+[node name="HealthBarAnchor" type="Marker2D" parent="."]
+position = Vector2(0, 40)
+
+[node name="HealthBar" type="TextureProgressBar" parent="HealthBarAnchor"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.392157)
+offset_left = -16.0
+offset_right = 24.0
+offset_bottom = 40.0
+texture_over = ExtResource("6_omp4a")
+texture_progress = ExtResource("7_apd8p")
+
+[node name="walkTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
+[node name="HurtBox" parent="." instance=ExtResource("2_vvsl3")]
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(1.5, 3)
+shape = SubResource("RectangleShape2D_3ynms")
+
+[node name="Attack" type="Node2D" parent="."]
+
+[node name="IceSpearTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 1.5
+
+[node name="IceSpearAttackTimer" type="Timer" parent="Attack/IceSpearTimer"]
+unique_name_in_owner = true
+wait_time = 0.075
+
+[node name="TornadoTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 3.0
+
+[node name="TornadoAttackTimer" type="Timer" parent="Attack/TornadoTimer"]
+unique_name_in_owner = true
+wait_time = 0.2
+
+[node name="FireBlastTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 3.0
+
+[node name="FireBlastAttackTimer" type="Timer" parent="Attack/FireBlastTimer"]
+unique_name_in_owner = true
+wait_time = 0.2
+
+[node name="ShadowStrikeTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 3.0
+
+[node name="ShadowStrikeAttackTimer" type="Timer" parent="Attack/ShadowStrikeTimer"]
+unique_name_in_owner = true
+wait_time = 0.2
+
+[node name="ShadowBoltTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 3.0
+
+[node name="ShadowBoltAttackTimer" type="Timer" parent="Attack/ShadowBoltTimer"]
+unique_name_in_owner = true
+wait_time = 0.2
+
+[node name="HolySmiteTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 3.0
+
+[node name="HolySmiteAttackTimer" type="Timer" parent="Attack/HolySmiteTimer"]
+unique_name_in_owner = true
+wait_time = 0.2
+
+[node name="BerserkerSlashTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 3.0
+
+[node name="BerserkerSlashAttackTimer" type="Timer" parent="Attack/BerserkerSlashTimer"]
+unique_name_in_owner = true
+wait_time = 0.2
+
+[node name="ShieldBashTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 3.0
+
+[node name="ShieldBashAttackTimer" type="Timer" parent="Attack/ShieldBashTimer"]
+unique_name_in_owner = true
+wait_time = 0.2
+
+[node name="JavelinBase" type="Node2D" parent="Attack"]
+unique_name_in_owner = true
+
+[node name="EnemyDetectionArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionArea"]
+shape = SubResource("CircleShape2D_4l4b6")
+
+[node name="GrabArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
+shape = SubResource("CircleShape2D_svib6")
+
+[node name="CollectArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
+shape = SubResource("CircleShape2D_3i8w6")
+
+[node name="GUILayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="GUI" type="Control" parent="GUILayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="lblTimer" type="Label" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 950.0
+offset_top = 20.0
+offset_right = 1030.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("5_7onrd")
+theme_override_font_sizes/font_size = 20
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+[connection signal="timeout" from="Attack/IceSpearTimer" to="." method="_on_ice_spear_timer_timeout"]
+[connection signal="timeout" from="Attack/IceSpearTimer/IceSpearAttackTimer" to="." method="_on_ice_spear_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/TornadoTimer" to="." method="_on_tornado_timer_timeout"]
+[connection signal="timeout" from="Attack/TornadoTimer/TornadoAttackTimer" to="." method="_on_tornado_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/FireBlastTimer" to="." method="_on_fire_blast_timer_timeout"]
+[connection signal="timeout" from="Attack/FireBlastTimer/FireBlastAttackTimer" to="." method="_on_fire_blast_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/ShadowStrikeTimer" to="." method="_on_shadow_strike_timer_timeout"]
+[connection signal="timeout" from="Attack/ShadowStrikeTimer/ShadowStrikeAttackTimer" to="." method="_on_shadow_strike_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/ShadowBoltTimer" to="." method="_on_shadow_bolt_timer_timeout"]
+[connection signal="timeout" from="Attack/ShadowBoltTimer/ShadowBoltAttackTimer" to="." method="_on_shadow_bolt_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/HolySmiteTimer" to="." method="_on_holy_smite_timer_timeout"]
+[connection signal="timeout" from="Attack/HolySmiteTimer/HolySmiteAttackTimer" to="." method="_on_holy_smite_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/BerserkerSlashTimer" to="." method="_on_berserker_slash_timer_timeout"]
+[connection signal="timeout" from="Attack/BerserkerSlashTimer/BerserkerSlashAttackTimer" to="." method="_on_berserker_slash_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/ShieldBashTimer" to="." method="_on_shield_bash_timer_timeout"]
+[connection signal="timeout" from="Attack/ShieldBashTimer/ShieldBashAttackTimer" to="." method="_on_shield_bash_attack_timer_timeout"]
+[connection signal="body_entered" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_entered"]
+[connection signal="body_exited" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_exited"]
+[connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]
+[connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
+
+[editable path="HurtBox"]

@@ -1,0 +1,85 @@
+[gd_scene load_steps=16 format=3 uid="uid://cao1o777umlnk"]
+
+[ext_resource type="Texture2D" uid="uid://brevhs1wtvsar" path="res://textures/dirt_full_new.png" id="1_2oc3a"]
+[ext_resource type="Script" uid="uid://h3sn8h5mdyr8" path="res://crawler_world.gd" id="1_p6p0i"]
+[ext_resource type="PackedScene" uid="uid://bj5agmet8rbqx" path="res://Utility/enemy_spawner.tscn" id="3_oogeh"]
+[ext_resource type="Script" uid="uid://mphyoigqfu2x" path="res://Utility/spawn_info.gd" id="4_dho2f"]
+[ext_resource type="PackedScene" uid="uid://be5nob84afsbd" path="res://enemy/enemy_kobold_weak.tscn" id="5_t68j4"]
+[ext_resource type="PackedScene" uid="uid://3h3nw6u6ihck" path="res://enemy/enemy_kobold_strong.tscn" id="6_6hwdy"]
+[ext_resource type="PackedScene" uid="uid://qpwsfduwgnmq" path="res://enemy/enemy_juggernaut.tscn" id="7_tsjao"]
+[ext_resource type="PackedScene" uid="uid://6rl8m77oagfd" path="res://enemy/enemy_cyclops.tscn" id="8_huxbd"]
+[ext_resource type="AudioStream" uid="uid://640tts2w6bub" path="res://audio/Music/battleThemeA.mp3" id="11_2e8kd"]
+[ext_resource type="PackedScene" uid="uid://bdx63eky1vp1x" path="res://minimap.tscn" id="11_qskpj"]
+[ext_resource type="Script" uid="uid://c8mqp08abcec2" path="res://audio/Music/snd_Music.gd" id="12_d3nxm"]
+[ext_resource type="Script" uid="uid://b7ypa316jbn1n" path="res://minimap.gd" id="12_uf8ur"]
+[ext_resource type="PackedScene" uid="uid://duljpqpdxdqf4" path="res://cw_pause_menu.tscn" id="13_d1rg8"]
+[ext_resource type="PackedScene" uid="uid://dr2qif6ndbgml" path="res://inventory_panel.tscn" id="14_wlmfs"]
+[ext_resource type="PackedScene" uid="uid://dcllick675nyq" path="res://champion_panel.tscn" id="15_eh1ky"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_p6p0i")
+
+[node name="BGLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="BGLayer"]
+z_index = -100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 2
+texture_repeat = 2
+texture = ExtResource("1_2oc3a")
+region_enabled = true
+region_rect = Rect2(0, 0, 4000, 4000)
+
+[node name="DungeonRooms" type="Sprite2D" parent="."]
+
+[node name="PlayerContainer" type="Node2D" parent="."]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("3_oogeh")]
+spawns = Array[ExtResource("4_dho2f")]([])
+enemy_types = Array[PackedScene]([ExtResource("5_t68j4"), ExtResource("6_6hwdy"), ExtResource("7_tsjao"), ExtResource("8_huxbd")])
+
+[node name="Loot" type="Node2D" parent="." groups=["loot"]]
+
+[node name="snd_Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("11_2e8kd")
+volume_db = -15.0
+parameters/looping = true
+script = ExtResource("12_d3nxm")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Minimap" parent="HUD" instance=ExtResource("11_qskpj")]
+offset_bottom = 0.440002
+script = ExtResource("12_uf8ur")
+crawler_world_path = NodePath("../..")
+
+[node name="CW_PauseMenu" parent="HUD" instance=ExtResource("13_d1rg8")]
+process_mode = 2
+visible = false
+
+[node name="InventoryPanel" parent="HUD/CW_PauseMenu" instance=ExtResource("14_wlmfs")]
+unique_name_in_owner = true
+visible = false
+offset_left = 1128.0
+offset_top = 208.0
+offset_right = 1896.0
+offset_bottom = 656.0
+
+[node name="ChampionPanel" parent="HUD/CW_PauseMenu" instance=ExtResource("15_eh1ky")]
+unique_name_in_owner = true
+visible = false
+offset_left = 552.0
+offset_top = 208.0
+offset_right = 1104.0
+offset_bottom = 856.0

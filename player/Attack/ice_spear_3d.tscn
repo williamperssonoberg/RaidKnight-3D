@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq2vnsg3uk7pm"]
+
+[ext_resource type="Script" uid="uid://c68pt8doausp1" path="res://player/Attack/ice_spear_3d.gd" id="1_if8nb"]
+[ext_resource type="AudioStream" uid="uid://dk55vburcaxfa" path="res://audio/SoundEffect/ice.wav" id="2_qn0ck"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_qn0ck"]
+albedo_color = Color(0, 0.580392, 1, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d2cs2"]
+
+[node name="ice_spear_3D" type="Area3D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_if8nb")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+material_override = SubResource("ORMMaterial3D_qn0ck")
+radius = 0.182
+height = 0.844
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(9.55343e-16, 2.18557e-08, 0.5, 0.5, -2.18557e-08, 0, 2.18557e-08, 0.5, -2.18557e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_d2cs2")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CollisionShape3D"]
+radius = 0.365
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="snd_play" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qn0ck")
+volume_db = -10.0
+pitch_scale = 5.0
+autoplay = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

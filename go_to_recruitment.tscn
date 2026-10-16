@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn06hcuglceg6"]
+
+[ext_resource type="Script" uid="uid://dech1ecjnpxp1" path="res://go_to_recruitment.gd" id="1_hvrjq"]
+
+[node name="GoToRecruitment" type="Button"]
+offset_left = 8.0
+offset_top = 568.0
+offset_right = 136.0
+offset_bottom = 630.0
+text = "Recruit
+Champion"
+script = ExtResource("1_hvrjq")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

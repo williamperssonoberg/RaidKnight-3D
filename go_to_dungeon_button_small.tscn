@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://p0qe2y0iuhiv"]
+
+[ext_resource type="Script" uid="uid://s60y7kto0hb7" path="res://go_to_dungeon_button_small_script.gd" id="1_keyh1"]
+
+[node name="GoToDungeonButtonSmall" type="Button"]
+offset_left = 1016.0
+offset_top = 248.0
+offset_right = 1144.0
+offset_bottom = 312.0
+text = "Dungeons"
+script = ExtResource("1_keyh1")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

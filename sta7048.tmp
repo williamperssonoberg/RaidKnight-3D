@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxp5bljisoa16"]
+
+[ext_resource type="Script" path="res://GlobalBackgroundManager.gd" id="1_2tsqm"]
+[ext_resource type="Script" path="res://start_scene_script.gd" id="1_uwjiv"]
+[ext_resource type="Script" path="res://GlobalData.gd" id="2_a7j8l"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_2tsqm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 652.0
+script = ExtResource("1_uwjiv")
+
+[node name="Start" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 379.0
+offset_top = 114.0
+offset_right = 736.0
+offset_bottom = 243.0
+text = "Start New Game
+"
+script = ExtResource("2_a7j8l")
+
+[node name="Load" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 257.0
+offset_right = 735.0
+offset_bottom = 378.0
+text = "Load Game
+"
+
+[node name="Quit" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 379.0
+offset_top = 391.0
+offset_right = 737.0
+offset_bottom = 531.0
+text = "Quit Game"
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer"]
+
+[connection signal="pressed" from="CanvasLayer/Control/Start" to="CanvasLayer/Control" method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Load" to="CanvasLayer/Control" method="_on_load_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Quit" to="CanvasLayer/Control" method="_on_quit_pressed"]

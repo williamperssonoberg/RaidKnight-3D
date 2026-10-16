@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://2ur0gd5fgno1"]
+
+[ext_resource type="Script" uid="uid://bbqecon3srlml" path="res://player/Attack/ice_spear.gd" id="1_fyqjs"]
+[ext_resource type="Texture2D" uid="uid://b6ext46u375ix" path="res://textures/Items/Weapons/ice_spear.png" id="2_40l5o"]
+[ext_resource type="AudioStream" uid="uid://dk55vburcaxfa" path="res://audio/SoundEffect/ice.wav" id="3_3elje"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi1lj"]
+size = Vector2(6.36396, 32.5269)
+
+[node name="IceSpear" type="Area2D" groups=["attack"]]
+top_level = true
+scale = Vector2(0.1, 0.1)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_fyqjs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_40l5o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, -1.25)
+rotation = -0.785398
+shape = SubResource("RectangleShape2D_mi1lj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="snd_play" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3elje")
+volume_db = -10.0
+pitch_scale = 5.0
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfsvhsrjpq27o"]
+
+[ext_resource type="Script" uid="uid://demtv800tk66o" path="res://go_to_raid_button_small_script.gd" id="1_42mkx"]
+
+[node name="GoToRaidButtonSmall" type="Button"]
+offset_left = 1016.0
+offset_top = 320.0
+offset_right = 1144.0
+offset_bottom = 384.0
+text = "Raid"
+script = ExtResource("1_42mkx")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://brffd3ft0nevl"]
+
+[ext_resource type="Script" path="res://main_scene_script.gd" id="1_niqre"]
+[ext_resource type="PackedScene" uid="uid://c3ulqxdulu52h" path="res://go_to_guild_house_button.tscn" id="2_kc3s4"]
+[ext_resource type="PackedScene" uid="uid://35xejrpqbe6x" path="res://exit-button.tscn" id="2_orjur"]
+[ext_resource type="PackedScene" uid="uid://cfpshgpa167e6" path="res://go_to_crafting_scene_button.tscn" id="2_suwe0"]
+[ext_resource type="PackedScene" uid="uid://cn06hcuglceg6" path="res://go_to_recruitment.tscn" id="3_yoasv"]
+[ext_resource type="PackedScene" uid="uid://clncv5i455ywb" path="res://go_to_roster.tscn" id="4_2t60k"]
+[ext_resource type="PackedScene" uid="uid://dysyypv8ceu50" path="res://go_to_guild_inventory.tscn" id="5_laxlc"]
+[ext_resource type="PackedScene" uid="uid://cw3qhheng34li" path="res://go_to_auction_house_button.tscn" id="7_svbyb"]
+[ext_resource type="Script" path="res://GlobalBackgroundManager.gd" id="9_lfk0t"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_niqre")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_top = 72.0
+offset_right = 1920.0
+offset_bottom = 104.0
+text = "Main City Scene"
+horizontal_alignment = 1
+
+[node name="GoIntoBattle" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1704.0
+offset_top = 928.0
+offset_right = 1896.0
+offset_bottom = 1056.0
+text = "INTO
+GLORIOUS
+BATTLE"
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/Control"]
+script = ExtResource("9_lfk0t")
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer/Control/Node2D"]
+
+[node name="Quit Game" parent="CanvasLayer" instance=ExtResource("2_orjur")]
+offset_left = 1856.0
+offset_top = 24.0
+offset_right = 1898.0
+offset_bottom = 61.0
+
+[node name="GoToRecruitment" parent="CanvasLayer" instance=ExtResource("3_yoasv")]
+offset_top = 1008.0
+offset_bottom = 1072.0
+
+[node name="GoToRoster" parent="CanvasLayer" instance=ExtResource("4_2t60k")]
+offset_top = 1008.0
+offset_bottom = 1072.0
+
+[node name="GoToGuildInventory" parent="CanvasLayer" instance=ExtResource("5_laxlc")]
+offset_top = 1008.0
+offset_bottom = 1072.0
+
+[node name="Guild House" parent="CanvasLayer" instance=ExtResource("2_kc3s4")]
+offset_top = 936.0
+offset_bottom = 1000.0
+
+[node name="GoToAuctionHouse" parent="CanvasLayer" instance=ExtResource("7_svbyb")]
+offset_top = 1008.0
+offset_bottom = 1072.0
+
+[node name="GoToCraftingScene" parent="CanvasLayer" instance=ExtResource("2_suwe0")]
+offset_top = 1008.0
+offset_bottom = 1072.0
+
+[connection signal="pressed" from="CanvasLayer/Control/GoIntoBattle" to="CanvasLayer/Control" method="_on_go_into_battle_pressed"]

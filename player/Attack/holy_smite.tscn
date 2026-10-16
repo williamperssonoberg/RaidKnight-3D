@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6w6jnsdvytm4"]
+
+[ext_resource type="Script" uid="uid://c1pgxhcu66riu" path="res://player/Attack/holy_smite.gd" id="1_6jbxb"]
+[ext_resource type="Texture2D" uid="uid://15a7qf8jhojk" path="res://textures/Items/Weapons/holy_smite.png" id="2_ls17d"]
+[ext_resource type="AudioStream" uid="uid://dk55vburcaxfa" path="res://audio/SoundEffect/ice.wav" id="3_0esjm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi1lj"]
+size = Vector2(6.36396, 32.5269)
+
+[node name="HolySmite" type="Area2D" groups=["attack"]]
+top_level = true
+scale = Vector2(0.1, 0.1)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_6jbxb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ls17d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, -1.25)
+rotation = -0.785398
+shape = SubResource("RectangleShape2D_mi1lj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="snd_play" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0esjm")
+volume_db = -10.0
+pitch_scale = 5.0
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

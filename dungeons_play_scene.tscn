@@ -1,0 +1,448 @@
+[gd_scene load_steps=14 format=3 uid="uid://coqkoi546bof4"]
+
+[ext_resource type="PackedScene" uid="uid://cabgg6tprg55t" path="res://go_to_solo_play_button.tscn" id="1_6m65q"]
+[ext_resource type="Script" uid="uid://d32svl8oqey2y" path="res://dungeons_play_scene.gd" id="1_843cx"]
+[ext_resource type="PackedScene" uid="uid://35xejrpqbe6x" path="res://exit-button.tscn" id="1_bo3gh"]
+[ext_resource type="PackedScene" uid="uid://dysyypv8ceu50" path="res://go_to_guild_inventory.tscn" id="2_fiq6l"]
+[ext_resource type="PackedScene" uid="uid://bf5nhvkb6eqrs" path="res://go_to_city_view.tscn" id="2_qc7s2"]
+[ext_resource type="PackedScene" uid="uid://dfsvhsrjpq27o" path="res://go_to_raid_button_small.tscn" id="3_3wnua"]
+[ext_resource type="Texture2D" uid="uid://b27ppoi5yl6q6" path="res://textures/RaidTileSet.png" id="3_vmg6i"]
+[ext_resource type="Script" uid="uid://d2nvr0ca6ghna" path="res://RaidMapTileMap.gd" id="4_upwpg"]
+[ext_resource type="PackedScene" uid="uid://dcllick675nyq" path="res://champion_panel.tscn" id="5_3cj5d"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h6fvh"]
+texture = ExtResource("3_vmg6i")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+58:0/0 = 0
+59:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_bfdg7"]
+sources/0 = SubResource("TileSetAtlasSource_h6fvh")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uq5ca"]
+texture = ExtResource("3_vmg6i")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5d5ds"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_uq5ca")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_843cx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 1920.0
+offset_bottom = 64.0
+text = "Dungeons Scene"
+horizontal_alignment = 1
+
+[node name="ChampionDetailsContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 129.0
+offset_right = 520.0
+offset_bottom = 449.0
+
+[node name="lblName" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblClass" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblSpec" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblSkill" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblRace" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblLevel" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblChampionPower" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblStatus" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="GuildRosterContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 128.0
+offset_right = 248.0
+offset_bottom = 512.0
+
+[node name="DungeonPartyContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 616.0
+offset_right = 264.0
+offset_bottom = 760.0
+
+[node name="DungeonPartyDetailsContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 592.0
+offset_right = 512.0
+offset_bottom = 800.0
+
+[node name="AddRemoveChampButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 528.0
+offset_right = 200.0
+offset_bottom = 576.0
+text = "Add / Remove Champ"
+
+[node name="DungeonOptions" type="OptionButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1488.0
+offset_top = 96.0
+offset_right = 1680.0
+offset_bottom = 144.0
+
+[node name="PartyLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 864.0
+offset_top = 72.0
+offset_right = 1056.0
+offset_bottom = 104.0
+text = "Add party members"
+horizontal_alignment = 1
+
+[node name="DungeonLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1488.0
+offset_top = 64.0
+offset_right = 1680.0
+offset_bottom = 88.0
+text = "Select Dungeon"
+horizontal_alignment = 1
+
+[node name="StartDungeonButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1688.0
+offset_top = 96.0
+offset_right = 1880.0
+offset_bottom = 144.0
+text = "Start Dungeon"
+
+[node name="GuildMembers" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 104.0
+offset_right = 200.0
+offset_bottom = 128.0
+text = "Guild Members"
+horizontal_alignment = 1
+
+[node name="DungeonInfoLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1488.0
+offset_top = 152.0
+offset_right = 1880.0
+offset_bottom = 344.0
+
+[node name="ActiveDungeonPartiesContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1496.0
+offset_top = 368.0
+offset_right = 1816.0
+offset_bottom = 520.0
+
+[node name="GoToGuildInventory" parent="CanvasLayer/Control" instance=ExtResource("2_fiq6l")]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 1008.0
+offset_right = 480.0
+offset_bottom = 1072.0
+
+[node name="map_overlay" type="TileMap" parent="CanvasLayer/Control"]
+visibility_layer = 2
+z_index = 1
+position = Vector2(1216, 320)
+tile_set = SubResource("TileSet_bfdg7")
+format = 2
+layer_0/z_index = 1
+
+[node name="DungeonMapTileMap" type="TileMap" parent="CanvasLayer/Control"]
+position = Vector2(1216, 320)
+tile_set = SubResource("TileSet_5d5ds")
+rendering_quadrant_size = 8
+format = 2
+script = ExtResource("4_upwpg")
+
+[node name="DungeonInfoContainer" type="VBoxContainer" parent="CanvasLayer/Control/DungeonMapTileMap"]
+offset_left = -272.0
+offset_top = 88.0
+offset_bottom = 728.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CrawlerPartyGrid" type="GridContainer" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 512.0
+offset_top = 128.0
+offset_right = 1152.0
+offset_bottom = 768.0
+columns = 5
+
+[node name="slot_A1" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "A1"
+
+[node name="slot_A2" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "A2"
+
+[node name="slot_A3" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "A3"
+
+[node name="slot_A4" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "A4"
+
+[node name="slot_A5" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "A5"
+
+[node name="slot_B1" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "B1"
+
+[node name="slot_B2" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "B2"
+
+[node name="slot_B3" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "B3"
+
+[node name="slot_B4" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "B4"
+
+[node name="slot_B5" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "B5"
+
+[node name="slot_C1" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "C1"
+
+[node name="slot_C2" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "C2"
+
+[node name="slot_C3" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+self_modulate = Color(0, 1, 0, 1)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "C3"
+
+[node name="slot_C4" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "C4"
+
+[node name="slot_C5" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "C5"
+
+[node name="slot_D1" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "D1"
+
+[node name="slot_D2" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "D2"
+
+[node name="slot_D3" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "D3"
+
+[node name="slot_D4" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "D4"
+
+[node name="slot_D5" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "D5"
+
+[node name="slot_E1" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "E1"
+
+[node name="slot_E2" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "E2"
+
+[node name="slot_E3" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "E3"
+
+[node name="slot_E4" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "E4"
+
+[node name="slot_E5" type="Button" parent="CanvasLayer/Control/CrawlerPartyGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "E5"
+
+[node name="AddChampionToCrawlPartyButton" type="Button" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 512.0
+offset_top = 56.0
+offset_right = 640.0
+offset_bottom = 120.0
+text = "Add to Crawl Party"
+
+[node name="DungeonDifficultyButton" type="OptionButton" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 672.0
+offset_top = 48.0
+offset_right = 768.0
+offset_bottom = 80.0
+
+[node name="DungeonLevelButton" type="OptionButton" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 672.0
+offset_top = 8.0
+offset_right = 768.0
+offset_bottom = 40.0
+
+[node name="StartCrawlButton" type="Button" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 672.0
+offset_top = 88.0
+offset_right = 771.0
+offset_bottom = 119.0
+text = "Start Crawl!"
+
+[node name="ChampionPanel" parent="CanvasLayer/Control" instance=ExtResource("5_3cj5d")]
+unique_name_in_owner = true
+visible = false
+offset_left = 600.0
+offset_top = 328.0
+offset_right = 1152.0
+offset_bottom = 976.0
+
+[node name="InspectChampionButton" type="Button" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 256.0
+offset_top = 528.0
+offset_right = 416.0
+offset_bottom = 576.0
+text = "Inspect Champion"
+
+[node name="DungeonLevelLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 8.0
+offset_right = 896.0
+offset_bottom = 40.0
+text = "<- Dungeon Lvl"
+
+[node name="DungeonDifficultyLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 48.0
+offset_right = 896.0
+offset_bottom = 80.0
+text = "<- Difficulty"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 792.0
+offset_right = 1160.0
+offset_bottom = 832.0
+text = "You must always add a center champion first. (Square C3)"
+horizontal_alignment = 1
+
+[node name="Quit Game" parent="CanvasLayer" instance=ExtResource("1_bo3gh")]
+offset_left = 1856.0
+offset_top = 24.0
+offset_right = 1898.0
+offset_bottom = 61.0
+
+[node name="GoToCityView" parent="CanvasLayer" instance=ExtResource("2_qc7s2")]
+offset_left = 1784.0
+offset_top = 1024.0
+offset_right = 1914.0
+offset_bottom = 1077.0
+
+[node name="GoToRaidButtonSmall" parent="CanvasLayer" instance=ExtResource("3_3wnua")]
+visible = false
+offset_left = 1648.0
+offset_top = 1024.0
+offset_right = 1776.0
+offset_bottom = 1080.0
+
+[node name="GoToSoloPlayButton" parent="CanvasLayer" instance=ExtResource("1_6m65q")]
+visible = false
+offset_left = 1368.0
+offset_top = 1024.0
+offset_right = 1496.0
+offset_bottom = 1080.0
+
+[connection signal="pressed" from="CanvasLayer/Control/AddRemoveChampButton" to="." method="_on_add_remove_champ_button_pressed"]
+[connection signal="item_selected" from="CanvasLayer/Control/DungeonOptions" to="." method="_on_dungeon_options_item_selected"]
+[connection signal="pressed" from="CanvasLayer/Control/StartDungeonButton" to="." method="_on_start_dungeon_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/StartCrawlButton" to="." method="_on_start_crawl_button_pressed"]
+[connection signal="button_down" from="CanvasLayer/Control/InspectChampionButton" to="." method="_on_inspect_champion_button_button_down"]

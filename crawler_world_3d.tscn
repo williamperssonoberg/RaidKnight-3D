@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://dg4rp6e7775fd"]
+
+[ext_resource type="Script" uid="uid://dauuoonifak4e" path="res://crawler_world_3d.gd" id="1_6mdnu"]
+[ext_resource type="PackedScene" uid="uid://wjbkmqpuapl5" path="res://enemy_spawner_3d.tscn" id="2_gkuiy"]
+[ext_resource type="PackedScene" uid="uid://cvj5tji5ays4c" path="res://enemy_3d.tscn" id="3_bjt7u"]
+[ext_resource type="PackedScene" uid="uid://duljpqpdxdqf4" path="res://cw_pause_menu.tscn" id="4_aicvt"]
+[ext_resource type="PackedScene" uid="uid://dr2qif6ndbgml" path="res://inventory_panel.tscn" id="5_aqrps"]
+[ext_resource type="PackedScene" uid="uid://dcllick675nyq" path="res://champion_panel.tscn" id="6_03or4"]
+
+[sub_resource type="Environment" id="Environment_bjt7u"]
+background_mode = 1
+background_color = Color(1.20327e-07, 0.137475, 0.193594, 1)
+background_energy_multiplier = 0.5
+ambient_light_source = 2
+ambient_light_color = Color(7.21961e-08, 0.246064, 0.362644, 1)
+ambient_light_energy = 0.1
+sdfgi_read_sky_light = false
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0.447059, 0.447059, 1)
+fog_density = 1.0
+fog_sky_affect = 0.335
+fog_depth_curve = 1.51572
+volumetric_fog_density = 0.1
+volumetric_fog_albedo = Color(2.40654e-07, 0.447973, 0.44861, 1)
+volumetric_fog_length = 40.0
+volumetric_fog_detail_spread = 3.03143
+
+[node name="CrawlerWorld3D" type="Node3D"]
+script = ExtResource("1_6mdnu")
+
+[node name="DungeonRooms" type="Node3D" parent="."]
+
+[node name="PlayerContainer" type="Node3D" parent="."]
+
+[node name="EnemySpawner3D" parent="." instance=ExtResource("2_gkuiy")]
+enemy_types = Array[PackedScene]([ExtResource("3_bjt7u")])
+
+[node name="CameraRig" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 0.703556, 0.71064, 0, -0.71064, 0.703556, 0, 23.572, 24.7626)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, -8.9407e-08, 1, 0, -1, -8.9407e-08, 0, 11.754, -5.72205e-06)
+light_color = Color(0.932946, 0.619776, 0.178164, 1)
+light_energy = 8.725
+light_indirect_energy = 9.236
+light_volumetric_fog_energy = 7.596
+light_size = 0.686
+shadow_enabled = true
+spot_range = 46.688
+spot_angle = 56.79
+spot_angle_attenuation = 0.307786
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0186041, 0.999827, 0, -0.999827, -0.0186041, 0, 10.7359, 0)
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bjt7u")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+size = Vector3(1, 2, 1)
+
+[node name="HUD2" type="CanvasLayer" parent="."]
+
+[node name="CW_PauseMenu" parent="HUD2" instance=ExtResource("4_aicvt")]
+process_mode = 2
+visible = false
+
+[node name="InventoryPanel" parent="HUD2/CW_PauseMenu" instance=ExtResource("5_aqrps")]
+unique_name_in_owner = true
+visible = false
+offset_left = 1128.0
+offset_top = 208.0
+offset_right = 1896.0
+offset_bottom = 656.0
+
+[node name="ChampionPanel" parent="HUD2/CW_PauseMenu" instance=ExtResource("6_03or4")]
+unique_name_in_owner = true
+visible = false
+offset_left = 552.0
+offset_top = 208.0
+offset_right = 1104.0
+offset_bottom = 856.0
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0376623, -0.974985, 0.219056, -0.0596499, 0.216627, 0.97443, -0.997509, -0.049766, -0.0499991, 31.3528, 89.8473, 0)
+light_color = Color(0.392157, 0.537255, 0.780392, 1)
+shadow_enabled = true

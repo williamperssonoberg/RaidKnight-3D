@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwna40vdeypov"]
+
+[ext_resource type="Script" path="res://recruitment_scene.gd" id="1_8cref"]
+[ext_resource type="PackedScene" uid="uid://35xejrpqbe6x" path="res://exit-button.tscn" id="1_hhn8c"]
+[ext_resource type="PackedScene" uid="uid://clncv5i455ywb" path="res://go_to_roster.tscn" id="3_pdg36"]
+[ext_resource type="PackedScene" uid="uid://dysyypv8ceu50" path="res://go_to_guild_inventory.tscn" id="4_37abj"]
+[ext_resource type="PackedScene" uid="uid://cn06hcuglceg6" path="res://go_to_recruitment.tscn" id="5_edg7c"]
+[ext_resource type="PackedScene" uid="uid://bf5nhvkb6eqrs" path="res://go_to_city_view.tscn" id="6_52yhd"]
+[ext_resource type="PackedScene" uid="uid://c3ulqxdulu52h" path="res://go_to_guild_house_button.tscn" id="7_10kjc"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_8cref")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 640.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 431.0
+offset_top = 25.0
+offset_right = 713.0
+offset_bottom = 165.0
+text = "Champion Recruitment Scene"
+
+[node name="GenerateChampionsButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 256.0
+offset_bottom = 320.0
+text = "Find new recruits!"
+
+[node name="ClearChampionList" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 328.0
+offset_right = 248.0
+offset_bottom = 368.0
+text = "Clear List"
+
+[node name="AddToGuildRoster" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 448.0
+offset_right = 800.0
+offset_bottom = 512.0
+text = "Add to Guild"
+
+[node name="ChampionUIContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 128.0
+offset_right = 576.0
+offset_bottom = 512.0
+
+[node name="ChampionDetailsContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 128.0
+offset_right = 864.0
+offset_bottom = 448.0
+
+[node name="lblUniqueId" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblName" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblClass" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblSkill" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="lblRace" type="Label" parent="CanvasLayer/Control/ChampionDetailsContainer"]
+layout_mode = 2
+
+[node name="Quit Game" parent="CanvasLayer" instance=ExtResource("1_hhn8c")]
+
+[node name="GoToRoster" parent="CanvasLayer" instance=ExtResource("3_pdg36")]
+
+[node name="GoToGuildInventory" parent="CanvasLayer" instance=ExtResource("4_37abj")]
+
+[node name="GoToRecruitment" parent="CanvasLayer" instance=ExtResource("5_edg7c")]
+offset_bottom = 632.0
+
+[node name="GoToCityView" parent="CanvasLayer" instance=ExtResource("6_52yhd")]
+
+[node name="Guild House" parent="CanvasLayer" instance=ExtResource("7_10kjc")]
+
+[connection signal="pressed" from="CanvasLayer/Control/GenerateChampionsButton" to="CanvasLayer" method="_on_generate_champions_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ClearChampionList" to="CanvasLayer" method="_on_clear_champion_list_pressed"]

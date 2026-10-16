@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://clncv5i455ywb"]
+
+[ext_resource type="Script" uid="uid://dkqnybmq42xj4" path="res://go_to_roster.gd" id="1_br6pj"]
+
+[node name="GoToRoster" type="Button"]
+offset_left = 144.0
+offset_top = 568.0
+offset_right = 336.0
+offset_bottom = 632.0
+text = "Champion Roster"
+script = ExtResource("1_br6pj")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,115 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbfda05s7vm7d"]
+
+[ext_resource type="Script" uid="uid://drl53medi1mbj" path="res://ChatPanel.gd" id="1_5enss"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8f5e"]
+bg_color = Color(0.6, 0.6, 0.6, 0.196078)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.886275, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gosa3"]
+bg_color = Color(0.6, 0.6, 0.6, 0.196078)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.886275, 0, 1)
+
+[node name="ChatPanel" type="Control"]
+layout_mode = 3
+anchor_right = 0.021
+anchor_bottom = 0.037
+offset_right = -0.320004
+offset_bottom = 0.0400009
+script = ExtResource("1_5enss")
+
+[node name="SystemChatPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1344.0
+offset_top = 700.0
+offset_right = 1860.0
+offset_bottom = 810.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g8f5e")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SystemChatPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SystemChatPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SystemChat" type="RichTextLabel" parent="SystemChatPanel/ScrollContainer/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_following = true
+
+[node name="MemberChatPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 700.0
+offset_right = 520.0
+offset_bottom = 810.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gosa3")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MemberChatPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MemberChatPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MemberChat" type="RichTextLabel" parent="MemberChatPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+
+[node name="GenerateMemberMessageButton" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 376.0
+offset_top = 720.0
+offset_right = 560.0
+offset_bottom = 832.0
+text = "Member message
+"
+
+[node name="GenerateSystemMessageButton" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1312.0
+offset_top = 736.0
+offset_right = 1552.0
+offset_bottom = 840.0
+text = "System message"
+
+[connection signal="pressed" from="GenerateMemberMessageButton" to="." method="_on_generate_member_message_button_pressed"]
+[connection signal="pressed" from="GenerateSystemMessageButton" to="." method="_on_generate_system_message_button_pressed"]

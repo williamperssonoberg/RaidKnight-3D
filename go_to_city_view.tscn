@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf5nhvkb6eqrs"]
+
+[ext_resource type="Script" uid="uid://dn31itdcdbvoo" path="res://go_to_city_view_button.gd" id="1_yovwu"]
+
+[node name="GoToCityView" type="Button"]
+offset_left = 1016.0
+offset_top = 576.0
+offset_right = 1146.0
+offset_bottom = 629.0
+text = "City >"
+script = ExtResource("1_yovwu")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

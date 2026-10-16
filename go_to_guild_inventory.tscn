@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dysyypv8ceu50"]
+
+[ext_resource type="Script" uid="uid://v5v3yppahf61" path="res://go_to_guild_inventory.gd" id="1_pyaqo"]
+
+[node name="GoToGuildInventory" type="Button"]
+offset_left = 344.0
+offset_top = 568.0
+offset_right = 472.0
+offset_bottom = 632.0
+text = "Inventory"
+script = ExtResource("1_pyaqo")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

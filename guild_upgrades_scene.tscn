@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://db4o0m5b2p243"]
+
+[ext_resource type="PackedScene" uid="uid://35xejrpqbe6x" path="res://exit-button.tscn" id="1_pnnoc"]
+[ext_resource type="Script" uid="uid://bm0e55ggjrh37" path="res://guild_upgrades_scene.gd" id="1_vxtlp"]
+[ext_resource type="PackedScene" uid="uid://cn06hcuglceg6" path="res://go_to_recruitment.tscn" id="3_nhous"]
+[ext_resource type="PackedScene" uid="uid://clncv5i455ywb" path="res://go_to_roster.tscn" id="4_pd75l"]
+[ext_resource type="PackedScene" uid="uid://dysyypv8ceu50" path="res://go_to_guild_inventory.tscn" id="5_kthvb"]
+[ext_resource type="PackedScene" uid="uid://bf5nhvkb6eqrs" path="res://go_to_city_view.tscn" id="6_mgqmf"]
+[ext_resource type="PackedScene" uid="uid://c3ulqxdulu52h" path="res://go_to_guild_house_button.tscn" id="7_lqldv"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_vxtlp")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 644.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 50.0
+offset_right = 661.0
+offset_bottom = 93.0
+text = "Guild Upgrades Scene
+"
+
+[node name="Quit Game" parent="CanvasLayer" instance=ExtResource("1_pnnoc")]
+
+[node name="GoToRecruitment" parent="CanvasLayer" instance=ExtResource("3_nhous")]
+offset_right = 135.0
+offset_bottom = 632.0
+
+[node name="GoToRoster" parent="CanvasLayer" instance=ExtResource("4_pd75l")]
+
+[node name="GoToGuildInventory" parent="CanvasLayer" instance=ExtResource("5_kthvb")]
+
+[node name="GoToCityView" parent="CanvasLayer" instance=ExtResource("6_mgqmf")]
+offset_top = 568.0
+
+[node name="Guild House" parent="CanvasLayer" instance=ExtResource("7_lqldv")]

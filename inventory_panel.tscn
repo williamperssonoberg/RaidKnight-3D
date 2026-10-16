@@ -1,0 +1,92 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr2qif6ndbgml"]
+
+[ext_resource type="Script" uid="uid://c2t7f5cftr0de" path="res://InventoryPanel.gd" id="1_1s6p5"]
+
+[node name="InventoryPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 768.0
+offset_bottom = 448.0
+script = ExtResource("1_1s6p5")
+
+[node name="ShadedBackground" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 448.0
+mouse_filter = 2
+color = Color(0.555778, 0.503449, 0.340109, 1)
+
+[node name="TitleBar" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 48.0
+
+[node name="Label" type="Label" parent="TitleBar"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 9.0
+offset_right = 512.0
+offset_bottom = 40.0
+text = "Guild Inventory"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.052
+anchor_bottom = 0.089
+offset_left = 8.0
+offset_top = 48.0
+offset_right = 472.064
+offset_bottom = 400.128
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GuildInventoryContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="ItemDescription" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 512.0
+offset_top = 112.0
+offset_right = 760.0
+offset_bottom = 208.0
+
+[node name="UseItemButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 544.0
+offset_top = 304.0
+offset_right = 736.0
+offset_bottom = 376.0
+text = "USE ITEM"
+
+[node name="TargetSelect" type="OptionButton" parent="."]
+layout_mode = 2
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 736.0
+offset_bottom = 424.0
+
+[node name="GenerateRandomItemButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 544.0
+offset_top = 264.0
+offset_right = 736.0
+offset_bottom = 296.0
+text = "Create an item"
+
+[node name="CloseInventoryPanelButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 728.0
+offset_top = 8.0
+offset_right = 760.0
+offset_bottom = 40.0
+text = "X"
+
+[connection signal="gui_input" from="TitleBar" to="." method="_on_TitleBar_gui_input"]
+[connection signal="pressed" from="UseItemButton" to="." method="_on_use_item_button_pressed"]
+[connection signal="pressed" from="TargetSelect" to="." method="_on_target_select_pressed"]
+[connection signal="pressed" from="GenerateRandomItemButton" to="." method="_on_generate_random_item_button_pressed"]
+[connection signal="pressed" from="CloseInventoryPanelButton" to="." method="_on_close_inventory_panel_button_pressed"]

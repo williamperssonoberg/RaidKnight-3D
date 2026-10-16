@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ux6v8cosujen"]
+
+[ext_resource type="Script" uid="uid://jt67guildcpf" path="res://player_3d.gd" id="1_5wjm4"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_5wjm4"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wjm4"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Player3D" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_5wjm4")
+move_speed = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ORMMaterial3D_5wjm4")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_5wjm4")
+size = Vector3(1, 2, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CollisionShape3D"]

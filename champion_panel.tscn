@@ -1,0 +1,221 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcllick675nyq"]
+
+[ext_resource type="Script" uid="uid://k87gxn1c5vhb" path="res://champion_panel.gd" id="1_ghbis"]
+
+[node name="ChampionPanel" type="Control"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 552.0
+offset_bottom = 648.0
+script = ExtResource("1_ghbis")
+
+[node name="ShadedBackground" type="ColorRect" parent="."]
+layout_mode = 2
+offset_right = 550.0
+offset_bottom = 650.0
+mouse_filter = 2
+color = Color(0.555778, 0.503449, 0.340109, 1)
+
+[node name="TitleBar" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 552.0
+offset_bottom = 40.0
+
+[node name="ChampionNameLabel" type="Label" parent="TitleBar"]
+layout_mode = 2
+offset_right = 550.0
+offset_bottom = 23.0
+horizontal_alignment = 1
+
+[node name="EquipmentGrid" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+offset_left = 124.55
+offset_top = 52.055
+offset_right = 436.55
+offset_bottom = 364.055
+columns = 4
+
+[node name="Helmet" type="Panel" parent="EquipmentGrid"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="EquipmentGrid/Helmet"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
+
+[node name="Neck" type="Panel" parent="EquipmentGrid"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="EquipmentGrid/Neck"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
+
+[node name="Shoulders" type="Panel" parent="EquipmentGrid"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="EquipmentGrid/Shoulders"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
+
+[node name="Cloak" type="Panel" parent="EquipmentGrid"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="EquipmentGrid/Cloak"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
+
+[node name="Chest" type="Panel" parent="EquipmentGrid"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="EquipmentGrid/Chest"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
+
+[node name="Armguards" type="Panel" parent="EquipmentGrid"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EquipmentGrid/Armguards"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
+
+[node name="Gloves" type="Panel" parent="EquipmentGrid"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EquipmentGrid/Gloves"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
+
+[node name="Belt" type="Panel" parent="EquipmentGrid"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EquipmentGrid/Belt"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
+
+[node name="Legs" type="Panel" parent="EquipmentGrid"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EquipmentGrid/Legs"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
+
+[node name="Boots" type="Panel" parent="EquipmentGrid"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EquipmentGrid/Boots"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
+
+[node name="Ring1" type="Panel" parent="EquipmentGrid"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EquipmentGrid/Ring1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
+
+[node name="Ring2" type="Panel" parent="EquipmentGrid"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EquipmentGrid/Ring2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
+
+[node name="Trinket1" type="Panel" parent="EquipmentGrid"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EquipmentGrid/Trinket1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
+
+[node name="Trinket2" type="Panel" parent="EquipmentGrid"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EquipmentGrid/Trinket2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
+
+[node name="MainHand" type="Panel" parent="EquipmentGrid"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EquipmentGrid/MainHand"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
+
+[node name="OffHand" type="Panel" parent="EquipmentGrid"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EquipmentGrid/OffHand"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
+
+[node name="TraitsContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 67.47
+offset_top = 413.0
+offset_right = 279.47
+offset_bottom = 625.0
+size_flags_horizontal = 3
+
+[node name="StatsContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+offset_left = 288.0
+offset_top = 413.0
+offset_right = 500.0
+offset_bottom = 625.0
+size_flags_horizontal = 3
+
+[node name="CloseChampionPanelButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_right = 552.0
+offset_bottom = 40.0
+text = "X"
+
+[connection signal="gui_input" from="TitleBar" to="." method="_on_TitleBar_gui_input"]
+[connection signal="pressed" from="CloseChampionPanelButton" to="." method="_on_close_champion_panel_button_pressed"]

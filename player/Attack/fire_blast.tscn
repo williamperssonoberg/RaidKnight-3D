@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnvqavybj8dvk"]
+
+[ext_resource type="Script" uid="uid://s4q3wtr8em0f" path="res://player/Attack/fire_blast.gd" id="1_vesbg"]
+[ext_resource type="Texture2D" uid="uid://r30rvsph56o5" path="res://textures/Items/Weapons/fire_blast.png" id="2_cx1j5"]
+[ext_resource type="AudioStream" uid="uid://dk55vburcaxfa" path="res://audio/SoundEffect/ice.wav" id="3_l3a2p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi1lj"]
+size = Vector2(6.36396, 32.5269)
+
+[node name="FireBlast" type="Area2D" groups=["attack"]]
+top_level = true
+scale = Vector2(0.1, 0.1)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_vesbg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cx1j5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, -1.25)
+rotation = -0.785398
+shape = SubResource("RectangleShape2D_mi1lj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="snd_play" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_l3a2p")
+volume_db = -10.0
+pitch_scale = 5.0
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

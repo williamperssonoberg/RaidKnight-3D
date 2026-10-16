@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3ulqxdulu52h"]
+
+[ext_resource type="Script" uid="uid://bte58dhnlg2br" path="res://go_to_guild_house_button.gd" id="1_l72rf"]
+
+[node name="Guild House" type="Button"]
+offset_left = 8.0
+offset_top = 496.0
+offset_right = 136.0
+offset_bottom = 560.0
+text = "Guild House"
+script = ExtResource("1_l72rf")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
